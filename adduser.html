@@ -1,1 +1,51 @@
-1
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!--<form name="myForm" action="test.php" onsubmit="return checkForm();" method="post"> -->
+        <form name="myForm" action="adduser.php" method="post">    
+            <table>
+            <tr>
+                <td> <p>Email:</p> </td>
+                <td><input type="text" name="email" id="Email" > </br> </td>
+            </tr>
+            <tr>
+                <td> <p>Name:</p> </td>
+                <td> <input type="text" name="name" ></br> </td>
+            </tr>      
+            <tr>
+                <td> <p>Passowrd:</p> </td>
+                <td> <input type="password" name="psd"></br> </td>
+            </tr>
+            <tr>
+                <td> <p>Retype Password: </p> </td>
+                <td> <input type="password" name="repsd"></br> </td>
+            </tr>
+             <!--<input type="submit" value="提交"> -->
+            <tr>
+                <td><input type="submit" name="button" id="button" value="送出" /></td>
+            </tr>
+            </table>
+                 
+        </form>
+
+        <script type="text/javascript">
+
+        function checkForm(){
+            var x = document.getElementById("Email").value;
+            if(x==""){
+                alert("email不可空白");
+                return false;
+            } else{
+                return true;
+        
+            }
+        }
+
+        </script>
+     
+    </body>   
+</html>
