@@ -10,7 +10,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="adduser.html">新增Member</a>
+
+
+<!--<a href="adduser.html">新增Member</a>-->
 
 <table class="table table-hover">
 <thead>
@@ -21,6 +23,8 @@
         <th>Edit/Delete</th>
       </tr>
 </thead>
+
+
     
 
 <?php
@@ -66,7 +70,10 @@ mysqli_close($connect);
 
 
 ?>
-
 </table>
+
+<div calss="add-Btn">
+    <button type="button" class="btn btn-primary btn-sm" onclick="location.href='adduser.html'">新增Member</button>
+</div>
 </body>
 </html>
