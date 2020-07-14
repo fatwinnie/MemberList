@@ -17,7 +17,7 @@ $pw = $_POST['pw'];
 $result = mysqli_query($connect,"SELECT * FROM member where memEmail='$id'");
 $row = mysqli_fetch_assoc($result);
 
-if($id!=null && $pw!=null && $row['memEmail']==$id && $row['psd']==$pw){
+if($id!=null && $pw!=null && $row['memEmail']==$id && $row['psd']==md5($pw)){
     echo '登入成功!';
     echo '<meta http-equiv=REFRESH CONTENT=1;url=memList.php>';
 } else{

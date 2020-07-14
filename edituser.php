@@ -33,12 +33,33 @@ $dbname='test0706';
             }        
     ?>
 
+  
+
     <form action="edituser_server.php" method="post">    
-        <label>userID:</label> <input type="text" name="id" value= "<?php echo $result_arr['memID'] ?>">
-        <label>Email:</label> <input type="text" name="email" value="<?php echo $result_arr['memEmail'] ?>">
-        <label>Name:</label> <input type="text" name="name" value="<?php echo $result_arr['memName'] ?>">
-        <input type="submit" value="提交修改">     
-    </form>
+            <table>
+            <tr>
+                <td> <p>Email:</p> </td>
+                <td><input type="text" name="email" value="<?php echo $result_arr['memEmail']?>" > </br> </td>
+            </tr>
+            <tr>
+                <td> <p>Name:</p> </td>
+                <td> <input type="text" name="name" value="<?php echo $result_arr['memName']?>" ></br> </td>
+            </tr>      
+            <tr>
+                <td> <p>Passowrd:</p> </td>
+                <td> <input type="password" name="psd" value="<?php echo $result_arr['psd']?>"></br> </td>
+            </tr>
+            <tr>
+                <td> <p>Retype Password: </p> </td>
+                <td> <input type="password" name="repsd" value="<?php echo $result_arr['REpsd']?>"></br> </td>
+            </tr>
+             <!--<input type="submit" value="提交"> -->
+            <tr>
+                <td><input type="submit" name="button" id="button" value="提交修改" /></td>
+            </tr>
+            </table>
+                 
+        </form>
 
 </body>
 </html>
