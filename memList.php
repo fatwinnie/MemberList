@@ -54,7 +54,11 @@ for($i=0;$i<$row_count;$i++){
             <td>$id</td>
             <td>$email</td>
             <td>$name</td>
-            <td><a href='edituser.php?id=$id'>修改</a> <a href='deleteuser.php?id=$id'>刪除</a></td>
+            <td> <a href='edituser.php?id=$id'>修改</a> 
+            <button class='btn btn-danger btn-sm' onclick='deleteRecord($id)'>delete</button></td>
+            
+        
+
         </tr>";
 }
 /*
@@ -76,4 +80,14 @@ mysqli_close($connect);
     <button type="button" class="btn btn-primary btn-sm" onclick="location.href='adduser.html'">新增Member</button>
 </div>
 </body>
+<script language="javascript">
+function deleteRecord(id)
+{
+if(confirm("確實要刪除嗎?")) {
+    location.href=`deleteuser.php?id=${id}`
+alert("已經刪除！");
+}else
+alert("已經取消了刪除操作");
+}
+</script>
 </html>
