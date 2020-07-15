@@ -56,6 +56,7 @@ $dbname='test0706';
              <!--<input type="submit" value="提交"> -->
             <tr>
                 <td><input type="submit" name="button" id="button" value="提交修改" /></td>
+                <td><button type="button" class="btn btn-primary btn-sm" onclick="location.href='memList.php'">返回</button></td>
             </tr>
             </table>
                  

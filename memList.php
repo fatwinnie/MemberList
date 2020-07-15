@@ -17,6 +17,7 @@
 <table class="table table-hover">
 <thead>
       <tr>
+        <th><input type='checkbox' name='allitem[]'> 全選</th>
         <th>ID</th>
         <th>Email</th>
         <th>Name</th>
@@ -51,13 +52,13 @@ for($i=0;$i<$row_count;$i++){
     $name = $result_arr['memName'];
     //print_r($result_arr);
     echo "<tr>
+            <td><input type='checkbox' name='item[]'></td>
             <td>$id</td>
             <td>$email</td>
             <td>$name</td>
-            <td> <a href='edituser.php?id=$id'>修改</a> 
-            <button class='btn btn-danger btn-sm' onclick='deleteRecord($id)'>delete</button></td>
-            
-        
+            <td> <input type='button' onclick='javascript:location.href= `edituser.php?id=${id}`' value='修改'>
+                 <input type='button' onclick='deleteRecord($id)' value='刪除'></td>
+                 
 
         </tr>";
 }
