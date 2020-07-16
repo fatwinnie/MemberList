@@ -8,6 +8,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    function selectAll(qx){
+        var ck = document.getElementsByClassName('CK');
+
+        if(qx.checked){
+            for(i=0;i<ck.length;i++){
+                ck[i].setAttribute("checked","chekced");
+            }
+        } else{
+            for(var i=0;i<ck.length;i++){
+                ck[i].removeAttribute("checked");
+            }
+        }
+    }
+</script>
+
 </head>
 <body>
 
@@ -17,7 +33,7 @@
 <table class="table table-hover">
 <thead>
       <tr>
-        <th><input type='checkbox' name='allitem[]'> 全選</th>
+        <th><input type='checkbox' onclick='selectAll(this)' name='qx'> 全選</th>
         <th>ID</th>
         <th>Email</th>
         <th>Name</th>
@@ -25,8 +41,6 @@
       </tr>
 </thead>
 
-
-    
 
 <?php
 
@@ -52,35 +66,26 @@ for($i=0;$i<$row_count;$i++){
     $name = $result_arr['memName'];
     //print_r($result_arr);
     echo "<tr>
-            <td><input type='checkbox' name='item[]'></td>
+            <td><input type='checkbox' name='ids[]' value=$id class='CK'/></td>
             <td>$id</td>
             <td>$email</td>
             <td>$name</td>
             <td> <input type='button' onclick='javascript:location.href= `edituser.php?id=${id}`' value='修改'>
-                 <input type='button' onclick='deleteRecord($id)' value='刪除'></td>
-                 
-
-        </tr>";
-}
-/*
-$sql = "SELECT * FROM member ";
-$result = mysqli_query($connect,$sql);
-
-while($row=mysqli_fetch_assoc($result)){
-    echo "$row[1]email:$row[2]";
-}
-*/
+                 <input type='button' onclick='deleteRecord($id)' value='刪除'></td>                
+         </tr>"; }
 
 mysqli_close($connect);
-
 
 ?>
 </table>
 
-<div calss="add-Btn">
+<div><input type="submit" value="批量删除" /></div>
+
+<div calss="add-Btn" style="padding-left: 1300px;" >
     <button type="button" class="btn btn-primary btn-sm" onclick="location.href='adduser.html'">新增Member</button>
 </div>
-</body>
+</body> 
+
 <script language="javascript">
 function deleteRecord(id)
 {
@@ -91,4 +96,6 @@ alert("已經刪除！");
 alert("已經取消了刪除操作");
 }
 </script>
+
+
 </html>
