@@ -38,6 +38,10 @@ $dbname='test0706';
     <form action="edituser_server.php" method="post">    
             <table>
             <tr>
+                
+                <td><input type="hidden"  name="id" value="<?php echo $result_arr['memID']?>" > </br> </td>
+            </tr>    
+            <tr>
                 <td> <p>Email:</p> </td>
                 <td><input type="text" name="email" value="<?php echo $result_arr['memEmail']?>" > </br> </td>
             </tr>
@@ -56,7 +60,7 @@ $dbname='test0706';
              <!--<input type="submit" value="提交"> -->
             <tr>
                 <td><input type="submit" name="button" id="button" value="提交修改" /></td>
-                <td><button type="button" class="btn btn-primary btn-sm" onclick="location.href='memList.php'">返回</button></td>
+                <td><button type="button" class="btn btn-primary btn-sm" onclick="location.href='memList.php'">取消返回</button></td>
             </tr>
             </table>
                  

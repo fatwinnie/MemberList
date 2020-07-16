@@ -45,7 +45,7 @@ if(!$connect){
 }
 //mysqli_query($connect,"INSERT INTO member (memEmail,memName,psd,REpsd) VALUES ('$email','$name','$psd','$repsd')");
 $sql="INSERT INTO member (memEmail,memName,psd,REpsd) 
-VALUES ('$_POST[email]','$_POST[name]',md5($_POST[psd]),'$_POST[repsd]')";
+VALUES ('$_POST[email]','$_POST[name]',md5($_POST[psd]),md5($_POST[repsd]))";
 if (!mysqli_query($connect,$sql))
   {
   die('Error: ' . mysqli_error($connect));

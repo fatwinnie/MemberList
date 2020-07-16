@@ -29,7 +29,7 @@
 
 
 <!--<a href="adduser.html">新增Member</a>-->
-
+<form method="post" name="form1" id="form1" action="deleteAll.php">
 <table class="table table-hover">
 <thead>
       <tr>
@@ -66,7 +66,7 @@ for($i=0;$i<$row_count;$i++){
     $name = $result_arr['memName'];
     //print_r($result_arr);
     echo "<tr>
-            <td><input type='checkbox' name='ids[]' value=$id class='CK'/></td>
+            <td><input type='checkbox' name='checkbox[]' value=$id class='CK'/></td>
             <td>$id</td>
             <td>$email</td>
             <td>$name</td>
@@ -78,8 +78,9 @@ mysqli_close($connect);
 
 ?>
 </table>
+<div><input type="submit" name="button" id="button" value="批量刪除" /></div>
+</form>
 
-<div><input type="submit" value="批量删除" /></div>
 
 <div calss="add-Btn" style="padding-left: 1300px;" >
     <button type="button" class="btn btn-primary btn-sm" onclick="location.href='adduser.html'">新增Member</button>
@@ -89,11 +90,11 @@ mysqli_close($connect);
 <script language="javascript">
 function deleteRecord(id)
 {
-if(confirm("確實要刪除嗎?")) {
+if(confirm("確定要刪除嗎?")) {
     location.href=`deleteuser.php?id=${id}`
 alert("已經刪除！");
 }else
-alert("已經取消了刪除操作");
+alert("取消刪除");
 }
 </script>
 
