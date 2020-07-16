@@ -14,11 +14,11 @@
 
         if(qx.checked){
             for(i=0;i<ck.length;i++){
-                ck[i].setAttribute("checked","chekced");
+                ck[i].setAttribute("checked","chekced"); //全選
             }
         } else{
             for(var i=0;i<ck.length;i++){
-                ck[i].removeAttribute("checked");
+                ck[i].removeAttribute("checked"); //全部取消
             }
         }
     }
@@ -29,7 +29,7 @@
 
 
 <!--<a href="adduser.html">新增Member</a>-->
-<form method="post" name="form1" id="form1" action="deleteAll.php">
+<form method="post" name="form1" id="form1" >
 <table class="table table-hover">
 <thead>
       <tr>
@@ -78,12 +78,13 @@ mysqli_close($connect);
 
 ?>
 </table>
-<div><input type="submit" name="button" id="button" value="批量刪除" /></div>
+<div><input type="submit" class="btn btn-danger"  name="button" id="button" value="全部刪除" onclick='deleteAll();return false;'/></div>
 </form>
 
 
-<div calss="add-Btn" style="padding-left: 1300px;" >
-    <button type="button" class="btn btn-primary btn-sm" onclick="location.href='adduser.html'">新增Member</button>
+<div calss="add-Btn" style="padding-left: 1130px;" >
+    <button type="button" class="btn btn-primary btn-sm" onclick="location.href='adduser.html'"
+    style="width:118px;height:50px;">新增Member</button>
 </div>
 </body> 
 
@@ -91,10 +92,22 @@ mysqli_close($connect);
 function deleteRecord(id)
 {
 if(confirm("確定要刪除嗎?")) {
-    location.href=`deleteuser.php?id=${id}`
-alert("已經刪除！");
+    location.href=`deleteuser.php?id=${id}`;
+    alert("刪除成功！");
 }else
 alert("取消刪除");
+}
+
+function deleteAll(){
+    if(confirm("確定要刪除嗎?")){
+        location.href='deleteAll.php';
+        alert("刪除成功!");
+        return true;
+    }else{
+        alert("取消刪除");
+        return false;
+    }
+
 }
 </script>
 

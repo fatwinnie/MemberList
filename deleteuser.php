@@ -9,6 +9,8 @@ $connect= mysqli_connect($host,$usr,$password,$dbname) or die('Error with MYSQL 
 if(!$connect){
     die('Could not connect:'.mysqli_error($connect));
 }
+// if user login and has delete / do next
+//else die permission deny.
 
 $id=intval($_GET['id']);
 //排空錯誤
